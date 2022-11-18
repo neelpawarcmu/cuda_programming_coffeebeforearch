@@ -33,7 +33,7 @@ void conv1d_cpu(std::vector<int> image, std::vector<int> kernel, std::vector<int
     }
 }
 
-void print_output(std::vector<int> output) {
+void print_vec(std::vector<int> output) {
     std::cout << "output: [";
     for (auto i:output){
         std::cout << i << "\t";  
@@ -49,7 +49,7 @@ int main() {
     start = std::clock();
     conv1d_cpu(image, kernel, output);
     std::cout << "\nTime (CPU): " << (std::clock() - start) / (double)(CLOCKS_PER_SEC / 1000) << " ms" << std::endl;
-    print_output(output);
+    print_vec(output);
     
     // cuda code
     const int IMG_W = image.size(), K_W = kernel.size();
@@ -76,6 +76,6 @@ int main() {
 
     // copy output
     cudaMemcpy(output.data(), d_out, bytes_img, cudaMemcpyHostToDevice);
-    print_output(output);
+    print_vec(output);
     return 1;
 }

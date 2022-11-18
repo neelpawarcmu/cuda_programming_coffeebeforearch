@@ -27,3 +27,13 @@ main fn:
 
 7. cudaFree all declared in malloc: `cudaFree(d_img)`
     delete cpu vecs if necessary: `delete[] h_out`
+
+
+### Boilerplate for cache tiling to shared memory, ie. L1 cache (matrix multiplication)
+
+kernel: `__global__ void fn_name(int *image, int *filter, int *output)` 
+1. get thread id: `int tid = blockDim.x * blockIdx.x + threadIdx.x`
+2. create tiles for matrices: `__shared__ int s_a[SHMEM_SIZE]`
+    `prod = iterate over kernel elements and multiply with image`
+    `output[tid] = prod` 
+3. 
