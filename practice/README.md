@@ -20,7 +20,7 @@ main fn:
     `cudaMemcpy(d_img, image.data(), bytes, cudaMemcpyDeviceToHost)`
 
 5. ThreadsPerBlock = 256, BlockDim = image_size / ThreadsPerBlock + 1
-    `fn<<<BlockDim, ThreadsPerBlock>>>(args)`
+    `fn<<<BlockDim, ThreadsPerBlock>>>(image, filter)`
 
 6. memcpy output vec from device to host: 
     `cudaMemcpy(result.data(), d_out, bytes, cudaMemcpyHostToDevice)`
