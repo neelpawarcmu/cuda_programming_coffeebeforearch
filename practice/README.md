@@ -8,6 +8,7 @@ kernel: `__global__ void fn_name(int *image, int *filter, int *output)`
 
 
 main fn:
+
 0. get image and filter, find sizes
 1. create output of calculated size: `vector<int> h_out`
 2. compute bytes the 3 vecs will take: `size_vec * sizeof(int)`
