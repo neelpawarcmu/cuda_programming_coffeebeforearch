@@ -1,4 +1,4 @@
-# GPGPU Programming with CUDA
+# GPU Programming with CUDA
 This repository contains all code from the YouTube series "CUDA Crash Course (v3)" by CoffeeBeforeArch.
 
 ## Contact
